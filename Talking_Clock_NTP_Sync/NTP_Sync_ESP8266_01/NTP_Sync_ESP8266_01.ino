@@ -1,6 +1,6 @@
 /************************************************************************
 *   ESP8266 NTP - DS3231 RTC Time sync
-*   File:   main.c
+*   File:   NTP_Sync_ESP8266_01.ino
 *   Author:  Jithin Krishnan.K
 *       Rev. 1.0 : 10/08/2020 :  09:10 PM
 * 
@@ -41,7 +41,7 @@ DS3231 clk;
 RTCDateTime dt, ist_dt;
 
 char ssid[] = "********";    // SSID
-char pass[] = "********";; // Wifi Password
+char pass[] = "********";;   // Wifi Password
 unsigned int localPort = 2390;
 
 IPAddress timeServerIP; 
@@ -50,7 +50,7 @@ const int NTP_PACKET_SIZE = 48;
 byte packetBuffer[ NTP_PACKET_SIZE];
 
 char do_once = 0;
-uint8_t deg_sym[8]  = {0x6,0x9,0x9,0x6,0x0,0,0,0};
+//uint8_t deg_sym[8]  = {0x6,0x9,0x9,0x6,0x0,0,0,0};
 
 WiFiUDP udp;
 
@@ -61,7 +61,7 @@ void setup()
   Serial.print("Wifi Connecting");
   WiFi.begin(ssid, pass);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
+  delay(500);
   }
   
   Serial.print("WiFi Connected!");
