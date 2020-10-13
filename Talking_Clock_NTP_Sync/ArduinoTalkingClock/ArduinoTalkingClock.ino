@@ -1,9 +1,9 @@
 /************************************************************************
-*   Arduino Talking Clock
+*   Arduino Talking Clock With NTP Time Sync
 *   
 *   File:   ArduinoTalkingClock.ino
 *   Author:  Jithin Krishnan.K
-*       Rev. 0.0.2 : 04/01/2019 :  07:13 PM
+*       Rev. 1.1 : 13/10/2020 :  07:13 PM
 * 
 * This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -92,12 +92,10 @@ void loop()
   {
    dt = clk.getDateTime();
 
-   if (dt.hour == 12 && dt.minute == 15 && !dt.second) {
+   if (dt.hour == 12 && dt.minute == 15 && !dt.second) { //  Time sync with NTP server @ 12:15:00 PM
        digitalWrite(WIFI_BOARD, HIGH);
        digitalWrite(LED_RED, HIGH);
-   } 
-
-   if (dt.hour == 12 && dt.minute == 17 && !dt.second) {
+       delay(60000);
        digitalWrite(WIFI_BOARD, LOW);
        digitalWrite(LED_RED, LOW);
    } 
